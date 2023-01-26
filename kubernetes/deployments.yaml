@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stonks-v2-client
+  labels:
+    app: stonks-v2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stonks-v2
+  template:
+    metadata:
+      labels:
+        app: stonks-v2
+    spec:
+      containers:
+        - name: pod-info-container
+          image: joshbrusa/stonks-v2-client
+          ports:
+            - containerPort: 80
